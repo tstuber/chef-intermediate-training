@@ -15,7 +15,8 @@ suites:
   - name: default
     run_list:
       - recipe[httpd::default]
+      - recipe[httpd::ohai_httpd_modules]
     verifier:
       inspec_tests:
-        - test/smoke/default
+        - test/smoke/default/
     attributes:
