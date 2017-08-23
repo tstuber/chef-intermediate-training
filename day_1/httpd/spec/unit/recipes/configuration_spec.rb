@@ -27,10 +27,10 @@ describe 'httpd::configuration' do
     end
   end
 
-  context 'When all attributes are default, on an Ubuntu 14.04' do
+  context 'When all attributes are default, on an Ubuntu 16.04' do
 
     let(:chef_run) do
-      runner = ChefSpec::ServerRunner.new(platform: 'ubuntu', version: '14.04')
+      runner = ChefSpec::ServerRunner.new(platform: 'ubuntu', version: '16.04')
       runner.converge(described_recipe)
     end
 
