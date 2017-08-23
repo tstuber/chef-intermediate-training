@@ -9,7 +9,7 @@ require 'spec_helper'
 describe 'httpd::default' do
   context 'When all attributes are default, on an unspecified platform' do
     let(:chef_run) do
-      runner = ChefSpec::ServerRunner.new
+      runner = ChefSpec::ServerRunner.new(platform: 'centos', version: '6.7', step_into: ['httpd_vhost'])
       runner.converge(described_recipe)
     end
 
@@ -47,7 +47,7 @@ describe 'httpd::default' do
       it 'creates a new home page' do
         expect(chef_run).to render_file('/srv/apache/admins/html/index.html').with_content('<h1>Welcome admins!</h1>')
       end
-      
+
     end
   end
 end
